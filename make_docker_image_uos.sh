@@ -39,6 +39,7 @@ function base_image {
         Log INFO "系统正在为 docker image 安装基础包，请等待......"
         yum -y --installroot=/uos-$VERSION install yum net-tools vim iproute iputils procps-ng  --releasever=1050
         cp /etc/skel/.bash* /uos-$VERSION/root && echo > /uos-$VERSION/root/.bash_history
+        cp /etc/dnf/vars/* /uos-$VERSION/etc/dnf/vars
 
         Log INFO "安装完毕，正在进行打包镜像......"
         cd /uos-$VERSION && tar -zcvpf /root/uos-$VERSION.tar --exclude=proc --exclude=sys --exclude=run --exclude=boot . 1>/dev/null 2>&1
