@@ -2,7 +2,7 @@
 
 
 #VERSION=$(uname -m)-$(nkvers | sed -n '10p' | awk -F "/" '{print $1 $3}' | awk '{print $2 $3 $4}' | tr '(|)' -)
-VERSION=$(uname -m)-$(cat /etc/issue.net |sed  's/ /_/g')
+VERSION=$(uname -m)-$(cat /etc/issue.net |sed  's/ /_/g'|sed 's/_$//g')
 clear
 
 # ${FUNCNAME[1]} 表示调用该函数的函数
